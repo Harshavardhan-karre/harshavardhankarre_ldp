@@ -1,1 +1,3 @@
 This is file from master
+This is from merge-conflict branch
+
