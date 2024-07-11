@@ -1,3 +1,6 @@
 Initial content
+<<<<<<< HEAD
 some changes I made and staged
 some changes I made and did not staged yet
+=======
+>>>>>>> greeting
