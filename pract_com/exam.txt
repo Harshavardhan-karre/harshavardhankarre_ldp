@@ -1,2 +1,3 @@
 content from file1 from master
 This from file2 from norm
+This from file3 from norm branch
