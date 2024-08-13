@@ -25,7 +25,11 @@ function getData(uId) {
   const pr = new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Fetched the data!");
-      resolve("skc@gmail.com");
+      if (uId === "error") {
+        reject(new Error("Error from server!"));
+      } else {
+        resolve("skc@gmail.com"); //updated
+      }
     }, 4000);
   });
   return pr;

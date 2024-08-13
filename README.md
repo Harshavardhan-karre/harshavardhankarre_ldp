@@ -1,1 +1,0 @@
-# harshavardhankarre_ldp
