@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: grid;
+        height: 100vh;
+      }
+      span {
+        background-color: rgb(185, 98, 68);
+        width: 100px;
+        height: 50px;
+      }
+      .divy {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="divy">
+      <span>Local storage:</span>
+      <p id="p1"></p>
+      <br />
+      <span>Session storage:</span>
+      <p id="p2"></p>
+      <div class="btn">
+        <button id="incr">Increment(+)</button>
+
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+    <script src="storage_Assignment.js"></script>
+  </body>
+</html>
