@@ -13,6 +13,7 @@
     border: 0.1em solid black;
     margin-right: 1rem;
     border-radius: 10px;
+    background-color: #b05959;
 }
 /* @media(min-height:1000px) {
     .container{
@@ -29,6 +30,7 @@
     border: 2px solid black;
     border-radius: 10px;
     box-sizing: border-box;
+    background-color: #b05959;
 }
 .menupg h1,input[name="searchfor"],input[name="tablesearch"]
 {
@@ -45,6 +47,7 @@
     border-radius: 10px;
     margin: 1em;
     padding: auto;
+    background-color: #fff;
  }
  .tableitems
  {
@@ -53,9 +56,14 @@
     border: 0.1rem solid black;
     border-radius: 10px;
     margin: 1em;
+    background-color: #fff;
  }
 
  h4
  {
     font-size: 1em;
  }
+h1
+{
+    background-color: #fff;
+}
