@@ -5,19 +5,19 @@ const elem = document.createElement("div");
 elem.classList.add("elemlist");
 const tracker = [];
 const elemobj = [
-  { id: 1, name: "Idli", price: "Rs.75" },
-  { id: 2, name: "Dosa", price: "Rs.80" },
-  { id: 3, name: "Dal Makhani", price: "Rs.150" },
-  { id: 4, name: "Shahi Paneer", price: "Rs.240" },
-  { id: 5, name: "Ras Malai", price: "Rs.380" },
-  { id: 6, name: "Veg Biryani", price: "Rs.280" },
-  { id: 7, name: "Meals", price: "Rs.210" },
+  { id: 1, name: "Idli", price: 75 },
+  { id: 2, name: "Dosa", price: 80 },
+  { id: 3, name: "Dal Makhani", price: 150 },
+  { id: 4, name: "Shahi Paneer", price: 240 },
+  { id: 5, name: "Ras Malai", price: 380 },
+  { id: 6, name: "Veg Biryani", price: 280 },
+  { id: 7, name: "Meals", price: 210 },
 ];
 elemobj.forEach((obj) => {
   const inel = document.createElement("div");
   inel.setAttribute("draggable", true);
   inel.classList.add("itemsmenupg");
-  inel.innerHTML += `<h4>${obj.name}</h4><h4>${obj.price}</h4>`;
+  inel.innerHTML += `<h4>${obj.name}</h4><h4>Rs. ${obj.price}</h4>`;
   elem.appendChild(inel);
   tracker.push({ ele: inel, i: obj });
   inel.setAttribute("data-id", obj.id);
@@ -34,15 +34,18 @@ const tabtracker = [];
 const tables = document.createElement("div");
 tables.classList.add("tablist");
 const tabobj = [
-  { id: 1, name: "Table-1", price: "Rs.0", Total_Items: "0" },
-  { id: 2, name: "Table-2", price: "Rs.0", Total_Items: "0" },
-  { id: 3, name: "Table-3", price: "Rs.0", Total_Items: "0" },
+  { id: 1, name: "Table-1", price: 0, Total_Items: 0, orders: [] },
+  { id: 2, name: "Table-2", price: 0, Total_Items: 0, orders: [] },
+  { id: 3, name: "Table-3", price: 0, Total_Items: 0, orders: [] },
 ];
 tabobj.forEach((obj) => {
   const inel = document.createElement("div");
   inel.classList.add("tableitems");
-  inel.innerHTML += `<h4>${obj.name}</h4><h4>${obj.price}</h4><h4>Total Items: ${obj.Total_Items}</h4>`;
+  inel.innerHTML += `<h4>${obj.name}</h4><h4>Rs. ${obj.price}</h4><h4>Total Items: ${obj.Total_Items}</h4>`;
   tables.appendChild(inel);
+  inel.addEventListener("click", () => {
+    intermedcaller(obj);
+  });
   inel.setAttribute("data-id", obj.id);
   tabtracker.push({ ele: inel, i: obj });
   inel.addEventListener("dragover", (e) => e.preventDefault());
@@ -65,7 +68,7 @@ tablepg.appendChild(tables);
 function getdragelm(id) {
   for (let { ele, i } of tracker) {
     if (i.id == id) {
-      return ele;
+      return i;
     }
   }
 }
@@ -143,18 +146,130 @@ function searchtable() {
 // Drop
 
 function updatetable(menuitem, tablelm) {
-  const menprice = menuitem.getElementsByTagName("h4");
-  const prc = menprice[1].textContent.slice(3);
-  const updprice = parseInt(tablelm.price.slice(3)) + parseInt(prc);
-  let reqd;
-  for (let { ele, i } of tabtracker) {
-    if (i.id == tablelm.id) {
-      reqd = ele;
-      break;
-    }
+  const present = tablelm.orders.find((x) => x.id === menuitem.id);
+  if (present) {
+    present.quantity += 1;
+  } else {
+    tablelm.orders.push({ ...menuitem, quantity: 1 });
   }
-  tablelm.price = "Rs." + updprice;
-  tablelm.Total_Items = parseInt(tablelm.Total_Items) + 1;
-  reqd.innerHTML = `<h4>${tablelm.name}</h4><h4>${tablelm.price}</h4><h4>Total Items: ${tablelm.Total_Items}</h4>`;
+  // console.log(tableno.orders);
+  tablelm.price += menuitem.price;
+  tablelm.Total_Items += 1;
+  // console.log(tableno.price);
+  // console.log(tableno.Total_Items);
+  updateTableCard(tablelm);
+
+  // const menprice = menuitem.getElementsByTagName("h4");
+  // const prc = menprice[1].textContent.slice(3);
+  // const updprice = parseInt(tablelm.price.slice(3)) + parseInt(prc);
+  // let reqd;
+  // for (let { ele, i } of tabtracker) {
+  //   if (i.id == tablelm.id) {
+  //     reqd = ele;
+  //     break;
+  //   }
+  // }
+  // tablelm.price = "Rs." + updprice;
+  // tablelm.Total_Items = parseInt(tablelm.Total_Items) + 1;
+  // reqd.innerHTML = `<h4>${tablelm.name}</h4><h4>${tablelm.price}</h4><h4>Total Items: ${tablelm.Total_Items}</h4>`;
   // console.log(reqd);
+}
+function updateTableCard(table) {
+  const tab = document.querySelector(`.tableitems[data-id="${table.id}"]`);
+  tab.innerHTML = `<h3>Table-${table.id}</h3><p>Rs. ${table.price}</p><p>Total Items:${table.Total_Items}</p>`;
+}
+
+// Popup
+
+// Modal Functionality
+
+// const tabpop = document.getElementsByClassName("tablist")[0];
+
+function intermedcaller(obj) {
+  popupactivate(obj);
+}
+
+function popupactivate(table) {
+  // console.log(table);
+  const pop = document.querySelector(".popup");
+  const body = document.querySelector("body");
+  pop.style.display = "inline-block";
+  // body.style.backgroundColor = "grey";
+  document.getElementsByClassName("menupg")[0].classList.add("blurred");
+  document.getElementsByClassName("tablepg")[0].classList.add("blurred");
+  // console.log(`Printing ${table}`);s
+  gettabledetails(table);
+}
+
+function closepop() {
+  const pop = document.querySelector(".popup");
+  pop.style.display = "none";
+  const body = document.querySelector("body");
+  body.style.backgroundColor = "white";
+  document.getElementsByClassName("menupg")[0].classList.remove("blurred");
+  document.getElementsByClassName("tablepg")[0].classList.remove("blurred");
+}
+
+function closeSession() {
+  const pop = document.querySelector(".popup");
+  pop.style.display = "none";
+  const body = document.querySelector("body");
+  body.style.backgroundColor = "white";
+  alert("Bill Generated");
+  document.getElementsByClassName("menupg")[0].classList.remove("blurred");
+  document.getElementsByClassName("tablepg")[0].classList.remove("blurred");
+}
+
+function gettabledetails(table) {
+  const tableid = table.id;
+  // console.group(table);
+  const pop = document.querySelector(".details");
+  pop.innerHTML = "";
+  pop.innerHTML = `<h3>${table.name}|Details</h3>`;
+  table.orders.forEach((order, i) => {
+    // console.log(e);
+    const its = document.createElement("div");
+    its.innerHTML = `<p>${i + 1}.${order.name}</p><p>Quantity:
+  <input type="number" id="quant" min="1"  value="${
+    order.quantity
+  }" ></p><p>Price:${
+      order.quantity * order.price
+    }</p><button class="delete">Delete</button>`;
+    pop.appendChild(its);
+
+    its.querySelector("input").addEventListener("input", (e) => {
+      updatetablenew(table, order.id, parseInt(e.target.value));
+    });
+    its.querySelector("button").addEventListener("click", () => {
+      deleteOrder(table, order.id);
+    });
+  });
+}
+
+function updatetablenew(table, orderid, newquantity) {
+  // console.log(newquantity);
+  const order = table.orders.find((x) => x.id == orderid);
+  if (order) {
+    table.price -= order.price * order.quantity;
+    table.Total_Items -= order.quantity;
+    order.quantity = newquantity;
+    console.log(order.quantity);
+    console.log(table.quantity);
+    table.Total_Items += order.quantity;
+    table.price += order.price * order.quantity;
+    updateTableCard(table);
+    gettabledetails(table);
+  }
+}
+
+function deleteOrder(table, orderId) {
+  const orderIndex = table.orders.findIndex((order) => order.id == orderId);
+  if (orderIndex > -1) {
+    const order = table.orders[orderIndex];
+    table.price -= order.price * order.quantity;
+    table.Total_Items -= order.quantity;
+    table.orders.splice(orderIndex, 1);
+    updateTableCard(table);
+    gettabledetails(table);
+  }
 }

@@ -6,7 +6,7 @@
 }
 .tablepg
 {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     display: flex;
     flex-direction: column;
     width:40%;
@@ -66,4 +66,21 @@
 h1
 {
     background-color: #fff;
+}
+
+.popup{
+    position: absolute;
+    background-color: #fff;
+    display: none;
+    top:30%;
+    left:30%;
+    width: 40%;
+    border: 1px solid black;
+    z-index: 1;
+}
+
+.blurred
+{
+  filter: blur(5px);
+  pointer-events: none;
 }
