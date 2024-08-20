@@ -16,6 +16,7 @@ const elemobj = [
   { id: 9, name: "Mushroom Biryani", price: 280, course: "Biryani" },
   { id: 10, name: "pavlova", price: 250, course: "Dessert" },
   { id: 11, name: "carrot cake", price: 320, course: "Dessert" },
+  { id: 12, name: "sweet cake", price: 380, course: "Dessert" },
 ];
 elemobj.forEach((obj) => {
   const inel = document.createElement("div");
@@ -198,7 +199,7 @@ function popupactivate(table) {
   // console.log(table);
   for (let { ele, i } of tabtracker) {
     if (table === i) {
-      ele.classList.add("active");
+      ele.classList.add("activey");
     }
   }
   const pop = document.querySelector(".popup");
@@ -213,7 +214,7 @@ function popupactivate(table) {
 
 function closepop() {
   for (let { ele, i } of tabtracker) {
-    ele.classList.remove("active");
+    ele.classList.remove("activey");
   }
   const pop = document.querySelector(".popup");
   pop.style.display = "none";
@@ -224,14 +225,34 @@ function closepop() {
 }
 
 function closeSession() {
+  const activeTable = tabtracker.find(({ ele }) =>
+    ele.classList.contains("activey")
+  );
   for (let { ele, i } of tabtracker) {
-    ele.classList.remove("active");
+    ele.classList.remove("activey");
   }
-  const pop = document.querySelector(".popup");
-  pop.style.display = "none";
-  const body = document.querySelector("body");
-  body.style.backgroundColor = "white";
-  alert("Bill has been Generated!!!");
+  // const pop = document.querySelector(".popup");
+  // pop.style.display = "none";
+  // const body = document.querySelector("body");
+  // alert("Bill has been Generated!!!");
+  if (activeTable) {
+    // Get the total price from the table object
+    const totalBill = activeTable.i.price;
+
+    // Display the bill
+    alert(
+      `Bill for ${activeTable.i.name} has been generated! Total amount: Rs.${totalBill}`
+    );
+
+    // Clear the orders and reset the table
+    activeTable.i.orders = [];
+    activeTable.i.price = 0;
+    activeTable.i.Total_Items = 0;
+
+    // Update the table card
+    updatetab(activeTable.i);
+    closepop();
+  }
   body.style.backgroundColor = "grey";
   document.getElementsByClassName("menupg")[0].style.opacity = "1";
   document.getElementsByClassName("tablepg")[0].style.opacity = "1";
@@ -240,19 +261,29 @@ function closeSession() {
 function gettabledetails(table) {
   const tableid = table.id;
   // console.group(table);
-  const pop = document.querySelector(".details");
-  pop.innerHTML = `<h3>${table.name}|Details</h3>`;
+  const pardiv = document.querySelector(".details");
+  pardiv.innerHTML = `<h3>${table.name}|Details</h3>`;
+
+  const tablar = document.createElement("table");
+  tablar.innerHTML += `<tr>
+            <th>S.No</th>
+            <th>Item</th>
+            <th>Price</th>
+          </tr>`;
+  // const pop = document.createElement("tbody");
+  // console.log(pop);
   table.orders.forEach((order, i) => {
     // console.log(e);
-    const its = document.createElement("div");
-    its.innerHTML = `<p>${i + 1}.${order.name}</p><p>Quantity:
+    const its = document.createElement("tr");
+    its.innerHTML = `<td><p>${i + 1}.${order.name}</p></td><td><p>Quantity:
   <input type="number" id="quant" min="1"  value="${
     order.quantity
-  }" ></p><p>Price:${
+  }" ></p></td><td><p>Price:${
       order.quantity * order.price
-    }</p><button class="delete">Delete</button>`;
-    pop.appendChild(its);
-    its.style.overflow = "hidden";
+    }</p></td><td><button class="delete">Delete</button></td>`;
+    tablar.appendChild(its);
+    // console.log(pop);
+    // its.style.overflow = "hidden";
     its.querySelector("input").addEventListener("input", (e) => {
       updatetablenew(table, order.id, parseInt(e.target.value));
     });
@@ -260,6 +291,8 @@ function gettabledetails(table) {
       deleteOrder(table, order.id);
     });
   });
+  console.log(tablar);
+  pardiv.appendChild(tablar);
 }
 
 function updatetablenew(table, orderid, newquantity) {

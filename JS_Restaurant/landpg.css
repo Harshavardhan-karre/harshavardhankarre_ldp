@@ -89,13 +89,14 @@ h1
     display: none;
     top:30%;
     left:30%;
-    width: 40%;
+    /* right: 80%; */
+    width: fit-content;
     border: 1px solid black;
     z-index: 1;
 }
 
 
-.active
+.activey
 {
     background-color:rgb(37, 170, 117);
 }
@@ -112,4 +113,14 @@ h1
     right: 58%;
     bottom: 0.01em;
     display: none;
+}
+.close
+{
+    position: absolute;
+    left:40%;
+}
+.X
+{
+    position: absolute;
+    left:96%;
 }
