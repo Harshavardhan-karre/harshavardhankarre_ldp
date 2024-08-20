@@ -10,34 +10,35 @@
     <div class="container">
       <div class="tablepg">
         <h1>Tables</h1>
-        <input
-          type="text"
-          alt="searchbar"
-          name="tablesearch"
-          placeholder="Search in tables"
-        />
+        <div class="iteminp">
+          <input
+            type="text"
+            alt="searchbar"
+            name="tablesearch"
+            placeholder="Search in tables"
+          />
+          <button class="clear-btn" onclick="clearinptab()">&#x2715;</button>
+        </div>
         <br />
       </div>
       <div class="menupg">
         <h1>Menu</h1>
-        <br />
-        <input
-          type="text"
-          alt="searchbar"
-          placeholder="Search in Menu"
-          name="searchfor"
-        />
-        <br />
+        <div class="iteminp">
+          <input
+            type="text"
+            alt="searchbar"
+            placeholder="Search in Menu"
+            name="searchfor"
+          />
+          <button class="clear-btn" onclick="clearinpmen()">&#x2715;</button>
+        </div>
       </div>
     </div>
     <div class="popup">
       <button onclick="closepop()" class="X">X</button>
-      <div class="details">
-        <h3></h3>
-      </div>
+      <div class="details"></div>
       <button class="close" onclick="closeSession()">Close Session</button>
     </div>
-
     <script src="landpg.js"></script>
   </body>
 </html>

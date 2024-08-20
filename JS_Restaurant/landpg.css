@@ -6,7 +6,7 @@
 }
 .tablepg
 {
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width:40%;
@@ -24,6 +24,7 @@
  .menupg
 {
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     width:70%;
     height: fit-content;
@@ -41,13 +42,17 @@
 
  .itemsmenupg
  {
-    width:60%;
+    width:95%;
     height: 15%;
     border: 0.1rem solid black;
     border-radius: 10px;
     margin: 1em;
     padding: auto;
     background-color: #fff;
+ }
+ .itemsmenupg:hover
+ {
+    background-color: rgb(37, 170, 117);
  }
  .tableitems
  {
@@ -57,6 +62,16 @@
     border-radius: 10px;
     margin: 1em;
     background-color: #fff;
+ }
+ .tableitems:hover
+ {
+    background-color: rgb(37, 170, 117);
+ }
+ .elemlist
+ {
+    height: 100vh;
+    overflow: scroll;
+    padding: 2%;
  }
 
  h4
@@ -79,8 +94,22 @@ h1
     z-index: 1;
 }
 
-.blurred
+
+.active
 {
-  filter: blur(5px);
-  pointer-events: none;
+    background-color:rgb(37, 170, 117);
+}
+
+.iteminp
+{
+    position: relative;
+}
+
+.clear-btn
+{
+    position: absolute;
+    transform: scale(0.7);
+    right: 58%;
+    bottom: 0.01em;
+    display: none;
 }
