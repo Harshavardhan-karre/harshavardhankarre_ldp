@@ -62,7 +62,6 @@ tabobj.forEach((obj) => {
     console.log(menuitem);
     const tableid = inel.dataset.id;
     console.log(tableid);
-    // draggable.classList.remove("hide");
     const tablelm = tabobj.find((x) => x.id == tableid);
     console.log(tablelm);
     updatetable(menuitem, tablelm);
@@ -105,26 +104,6 @@ function searchmenu() {
   }
 }
 
-// function searchmenu() {
-//   const ans = mensearch.value.trim();
-//   let found = false;
-//   let reqobj = null;
-//   elemobj.forEach((obj) => {
-//     if (obj.name.toLowerCase() == ans.toLowerCase()) {
-//       found = true;
-//     } else {
-//       obj.style.display = "hidden";
-//     }
-//   });
-//   if (found == false) {
-//     elemobj.forEach((i) => {
-//       i.style.display = "block";
-//     });
-//   } else {
-//     alert("There's no such item");
-//   }
-// }
-
 // Filtering items in Tables
 
 const tabsearch = document.querySelectorAll("input")[0];
@@ -160,27 +139,10 @@ function updatetable(menuitem, tablelm) {
   } else {
     tablelm.orders.push({ ...menuitem, quantity: 1 });
   }
-  // console.log(tableno.orders);
   tablelm.price += menuitem.price;
   tablelm.Total_Items += 1;
-  // console.log(tableno.price);
-  // console.log(tableno.Total_Items);
-  updatetab(tablelm);
 
-  // const menprice = menuitem.getElementsByTagName("h4");
-  // const prc = menprice[1].textContent.slice(3);
-  // const updprice = parseInt(tablelm.price.slice(3)) + parseInt(prc);
-  // let reqd;
-  // for (let { ele, i } of tabtracker) {
-  //   if (i.id == tablelm.id) {
-  //     reqd = ele;
-  //     break;
-  //   }
-  // }
-  // tablelm.price = "Rs." + updprice;
-  // tablelm.Total_Items = parseInt(tablelm.Total_Items) + 1;
-  // reqd.innerHTML = `<h4>${tablelm.name}</h4><h4>${tablelm.price}</h4><h4>Total Items: ${tablelm.Total_Items}</h4>`;
-  // console.log(reqd);
+  updatetab(tablelm);
 }
 function updatetab(table) {
   const tab = document.querySelector(`.tableitems[data-id="${table.id}"]`);
@@ -189,14 +151,11 @@ function updatetab(table) {
 
 // Popup
 
-// const tabpop = document.getElementsByClassName("tablist")[0];
-
 function intermedcaller(obj) {
   popupactivate(obj);
 }
 
 function popupactivate(table) {
-  // console.log(table);
   for (let { ele, i } of tabtracker) {
     if (table === i) {
       ele.classList.add("activey");
@@ -208,7 +167,6 @@ function popupactivate(table) {
   body.style.backgroundColor = "grey";
   document.getElementsByClassName("menupg")[0].style.opacity = "0.4";
   document.getElementsByClassName("tablepg")[0].style.opacity = "0.4";
-  // console.log(`Printing ${table}`);
   gettabledetails(table);
 }
 
@@ -231,25 +189,14 @@ function closeSession() {
   for (let { ele, i } of tabtracker) {
     ele.classList.remove("activey");
   }
-  // const pop = document.querySelector(".popup");
-  // pop.style.display = "none";
-  // const body = document.querySelector("body");
-  // alert("Bill has been Generated!!!");
   if (activeTable) {
-    // Get the total price from the table object
     const totalBill = activeTable.i.price;
-
-    // Display the bill
     alert(
       `Bill for ${activeTable.i.name} has been generated! Total amount: Rs.${totalBill}`
     );
-
-    // Clear the orders and reset the table
     activeTable.i.orders = [];
     activeTable.i.price = 0;
     activeTable.i.Total_Items = 0;
-
-    // Update the table card
     updatetab(activeTable.i);
     closepop();
   }
@@ -260,7 +207,6 @@ function closeSession() {
 
 function gettabledetails(table) {
   const tableid = table.id;
-  // console.group(table);
   const pardiv = document.querySelector(".details");
   pardiv.innerHTML = `<h3>${table.name}|Details</h3>`;
 
@@ -270,10 +216,8 @@ function gettabledetails(table) {
             <th>Item</th>
             <th>Price</th>
           </tr>`;
-  // const pop = document.createElement("tbody");
-  // console.log(pop);
+
   table.orders.forEach((order, i) => {
-    // console.log(e);
     const its = document.createElement("tr");
     its.innerHTML = `<td><p>${i + 1}.${order.name}</p></td><td><p>Quantity:
   <input type="number" id="quant" min="1"  value="${
@@ -282,8 +226,6 @@ function gettabledetails(table) {
       order.quantity * order.price
     }</p></td><td><button class="delete">Delete</button></td>`;
     tablar.appendChild(its);
-    // console.log(pop);
-    // its.style.overflow = "hidden";
     its.querySelector("input").addEventListener("input", (e) => {
       updatetablenew(table, order.id, parseInt(e.target.value));
     });
@@ -296,7 +238,6 @@ function gettabledetails(table) {
 }
 
 function updatetablenew(table, orderid, newquantity) {
-  // console.log(newquantity);
   const order = table.orders.find((x) => x.id == orderid);
   if (order) {
     table.price -= order.price * order.quantity;
@@ -327,12 +268,10 @@ function clearinptab() {
   document.querySelectorAll("input")[0].value = "";
   searchtable();
   document.querySelectorAll("button")[0].style.display = "none";
-  // console.log("Hello from clearinptab");
 }
 
 function clearinpmen() {
   document.querySelectorAll("input")[1].value = "";
   searchmenu();
   document.querySelectorAll("button")[1].style.display = "none";
-  // console.log("Hello from clearinpmen");
 }
