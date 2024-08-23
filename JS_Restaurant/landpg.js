@@ -214,19 +214,25 @@ function gettabledetails(table) {
   tablar.innerHTML += `<tr>
             <th>S.No</th>
             <th>Item</th>
+            <th>Quantity</th>
             <th>Price</th>
+            <th></th>
           </tr>`;
-
   table.orders.forEach((order, i) => {
     const its = document.createElement("tr");
-    its.innerHTML = `<td><p>${i + 1}.${order.name}</p></td><td><p>Quantity:
+    its.innerHTML = `<td><p>${i + 1}.</td><td>${order.name}</p></td><td><p>
   <input type="number" id="quant" min="1"  value="${
     order.quantity
-  }" ></p></td><td><p>Price:${
+  }" ></p></td><td><p>${
       order.quantity * order.price
-    }</p></td><td><button class="delete">Delete</button></td>`;
+    }</p></td><td><button class="delete"><i class="fas fa-trash"></i></button></td>`;
     tablar.appendChild(its);
     its.querySelector("input").addEventListener("input", (e) => {
+      let newQuantity = parseInt(e.target.value);
+      if (isNaN(newQuantity) || newQuantity < 1) {
+        newQuantity = 1;
+        inputElement.value = newQuantity;
+      }
       updatetablenew(table, order.id, parseInt(e.target.value));
     });
     its.querySelector("button").addEventListener("click", () => {

@@ -89,12 +89,13 @@ h1
     z-index: 1;
 }
 
-
 .activey
 {
     background-color:rgb(37, 170, 117);
 }
-
+.details{
+    margin-bottom: 10%;
+}
 .iteminp
 {
     position: relative;
@@ -112,9 +113,11 @@ h1
 {
     position: absolute;
     left:40%;
+    bottom: 3%;
 }
 .X
 {
     position: absolute;
-    left:96%;
+    left:93%;
+    
 }
