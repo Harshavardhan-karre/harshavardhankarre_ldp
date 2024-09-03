@@ -5,6 +5,16 @@
   align-items: center;
   height: 100vh;
 }
+.flexy
+{
+  display: flex;
+  gap:10px
+}
+.mainorg
+{
+  background-color: rgb(74, 64, 64);
+  color: white;
+}
 .divy
 {
   display: flex;
