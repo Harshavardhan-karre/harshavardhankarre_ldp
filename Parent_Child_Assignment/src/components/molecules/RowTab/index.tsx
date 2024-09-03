@@ -1,6 +1,16 @@
 import React from 'react'
 import Text from '../../atoms/Text/index.tsx';
 import CheckBox from '../../atoms/CheckBox/index.tsx';
+import styled from 'styled-components';
+import { Button } from '@mui/material';
+
+const StyledText=styled(Text)`
+ padding:10px;
+`;
+const StyledTag=styled.td`
+padding:10px;
+`;
+
 export default function index() {
   const info=[["Name","Type","Per Payment","Term length","Payment"],
     ["Contract 1","Monthly","$12000","12 months(12.0% fee)", "$63300"],
@@ -14,31 +24,30 @@ export default function index() {
     return (
       <>
         {data.map((item, index) => (
-          <Tag key={index}>
-            <Text text={item}/>
-            </Tag>
+          <StyledTag key={index}>
+            <StyledText text={item}/>
+            </StyledTag>
         ))}
       </>
     );
   }
-  const Rowy=({ished,i})=>{
+  const Rowy=({ished,data})=>{
    return (
     <tr>
-      <CheckBox type={"checkbox"}/>
-      <Data Tag={ished ? 'th':'td'} data={info[i]}></Data>
+      <CheckBox />
+      <Data Tag={ished ? 'th':'td'} data={data}></Data>
     </tr>
    )
 }
   return (
-    <div>
-      <Rowy ished={true} i={0}/>
-
-      <Rowy ished={false} i={1}/>
-      <Rowy ished={false} i={2}/>
-      <Rowy ished={false} i={3}/>
-      <Rowy ished={false} i={4}/>
-      <Rowy ished={false} i={5}/>
-      <Rowy ished={false} i={6}/>
+    <div>      
+      {info.map((data, i) => (
+        <Rowy
+        key={i}
+          ished={i===0}
+          data={data}
+        />
+      ))}
     </div>
   )
 }

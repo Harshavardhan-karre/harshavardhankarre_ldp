@@ -1,9 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
+import CheckBox from '@mui/material/Checkbox';
 
-export default function Index(props) {
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+export default function Index() {
   return (
     <div>
-      <button type={props.type} ></button>
+       <CheckBox {...label} style={{color:'white'}}/>
     </div>
   )
 }

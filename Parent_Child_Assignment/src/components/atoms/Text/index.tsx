@@ -1,9 +1,13 @@
 import React from 'react'
+import styled from 'styled-components';
 
+const StyledSpan=styled.span`
+ float:left
+`
 export default function index(props) {
   return (
     <div>
-      <span style={{fontSize:props.size}}>{props.text}</span>
+      <StyledSpan style={{fontSize:props.size}}>{props.text}</StyledSpan>
     </div>
   )
 }
