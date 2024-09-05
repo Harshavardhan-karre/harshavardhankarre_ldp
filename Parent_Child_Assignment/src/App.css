@@ -10,10 +10,12 @@
   display: flex;
   gap:10px
 }
+.icony{
+  margin-top: 10px;
+}
 .mainorg
 {
-  background-color: rgb(74, 64, 64);
-  color: white;
+  padding: 10px;
 }
 .divy
 {
@@ -22,6 +24,7 @@
   align-items: center;
   height: 100vh;
 }
+
 
 .App-logo {
   height: 40vmin;

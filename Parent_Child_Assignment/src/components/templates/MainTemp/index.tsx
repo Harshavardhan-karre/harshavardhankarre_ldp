@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { Children } from 'react'
 import Tabular from '../../organisms/Row/index.tsx'
+import styled from 'styled-components';
 
-export default function index() {
+const StyledBox=styled.div`
+background-color: rgb(74, 64, 64);
+color: white;
+ border-radius: 25px;
+`
+
+export default function index({children}) {
   return (
-    <div>
-      <Tabular/>
-    </div>
+    <StyledBox>
+      {children}
+    </StyledBox>
   )
 }

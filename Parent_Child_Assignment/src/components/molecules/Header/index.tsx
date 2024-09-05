@@ -7,7 +7,7 @@ export default function index(props) {
     <div>
         <div className='flexy'>
       <Text size={props.size} text={props.text}  isicon={true}/>
-      <InfoOutlinedIcon color='inherit' fontSize='medium'/>
+      <InfoOutlinedIcon className='icony' color='inherit' fontSize='medium'/>
         </div>
     </div>
   )

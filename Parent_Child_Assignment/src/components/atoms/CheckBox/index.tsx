@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
 import CheckBox from '@mui/material/Checkbox';
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-export default function Index() {
+export default function CustomCheckBox({ checked, onChange}) {
   return (
-    <div>
-       <CheckBox {...label} style={{color:'white'}}/>
-    </div>
-  )
+    <CheckBox 
+      checked={checked} 
+      onChange={onChange} 
+      style={{ color: 'white' }} 
+    />
+  );
 }
+
