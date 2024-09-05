@@ -1,6 +1,6 @@
 import React, { Children } from 'react'
-import Tabular from '../../organisms/Row/index.tsx'
 import styled from 'styled-components';
+import Box from '@mui/material/Box';
 
 const StyledBox=styled.div`
 background-color: rgb(74, 64, 64);
@@ -8,10 +8,20 @@ color: white;
  border-radius: 25px;
 `
 
-export default function index({children}) {
+
+const Index = ({ children }) => {
   return (
-    <StyledBox>
+    <Box
+      sx={{
+        backgroundColor: 'rgb(74, 64, 64)',
+        color: 'white',
+        borderRadius: '25px',
+        padding: '16px',
+      }}
+    >
       {children}
-    </StyledBox>
-  )
-}
+    </Box>
+  );
+};
+
+export default Index;

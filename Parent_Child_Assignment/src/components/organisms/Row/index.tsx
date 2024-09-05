@@ -3,6 +3,7 @@ import '../../../App.css';
 import Row from '../../molecules/RowTab/index.tsx';
 import Header from '../../molecules/Header/index.tsx';
 import styled from 'styled-components';
+import {ConstHeader} from '../../../utils/constants.tsx'
 // import { ReactComponent as MarkIcon } from '../../atoms/CheckBox/Markicon.svg';
 
 const StyledDiv = styled.div`
@@ -45,7 +46,7 @@ export default function Index() {
 
   return (
     <div className='mainorg'>
-      <Header size={30} text={"Your Data"} />
+    {ConstHeader}
       <table>
         {info.map((ar, i) => (
           <Row

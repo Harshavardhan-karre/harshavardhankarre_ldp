@@ -1,11 +1,9 @@
 import React from 'react'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-
+import  '../../../App.css'
 export default function index(props) {
   return (
-    <div>
-       <InfoOutlinedIcon color="secondary" fontSize="medium"/>
-    </div>
+       <InfoOutlinedIcon className="iconic" color={props.color} fontSize={props.fontSize}/>
   )
 }
 
