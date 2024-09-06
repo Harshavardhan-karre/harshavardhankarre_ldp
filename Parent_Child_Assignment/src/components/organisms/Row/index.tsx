@@ -1,36 +1,27 @@
 import React, { useState } from 'react';
 import '../../../App.css';
 import Row from '../../molecules/RowTab/index.tsx';
-import Header from '../../molecules/Header/index.tsx';
 import styled from 'styled-components';
-import {ConstHeader} from '../../../utils/constants.tsx'
-// import { ReactComponent as MarkIcon } from '../../atoms/CheckBox/Markicon.svg';
+import {ConstHeader} from '../../../utils/constants.tsx';
+import {Info} from '../../../utils/constants.tsx';
+import { Box } from '@mui/material';
 
-const StyledDiv = styled.div`
+const StyledBox = styled(Box)`
   background-color:rgba(102,61,165,255);
   color: white;
+  padding:10px;
 `;
 
-const info = [
-  ["Name", "Type", "Per Payment", "Term length", "Payment"],
-  ["Contract 1", "Monthly", "$12000", "12 months(12.0% fee)", "$63300"],
-  ["Contract 6", "Monthly", "$6000", "12 months(12.0% fee)", "$63300"],
-  ["Contract 5", "Monthly", "$6000", "12 months(12.0% fee)", "$63300"],
-  ["Contract 4", "Monthly", "$6000", "12 months(12.0% fee)", "$63300"],
-  ["Contract 3", "Monthly", "$6000", "12 months(12.0% fee)", "$63300"],
-  ["Contract 2", "Monthly", "$6000", "12 months(12.0% fee)", "$21100"]
-];
-
 export default function Index() {
-  const [state, setState] = useState(false);
-  const [rowStates, setRowStates] = useState(Array(info.length));
+  const [state, setState] = useState<boolean>(false);
+  const [rowStates, setRowStates] = useState<boolean[]>(Array(Info.length));
 
-  const handleCheckboxChange = (index, isChecked) => {
+  const handleCheckboxChange = (index:number, isChecked:boolean) => {
 
     if (index === 0) 
       {
       setState(isChecked);
-      setRowStates(Array(info.length).fill(isChecked));
+      setRowStates(Array(Info.length).fill(isChecked));
     } else 
     {
       const updatedRowStates = [...rowStates];
@@ -45,10 +36,10 @@ export default function Index() {
   };
 
   return (
-    <div className='mainorg'>
+    <Box>
     {ConstHeader}
       <table>
-        {info.map((ar, i) => (
+        {Info.map((ar, i) => (
           <Row
             key={i}
             data={ar}
@@ -59,7 +50,7 @@ export default function Index() {
           />
         ))}
       </table>
-    </div>
+    </Box>
   );
 }
 

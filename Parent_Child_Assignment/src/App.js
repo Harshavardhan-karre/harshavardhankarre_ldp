@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Tablepg from "./pages/Tablepg.tsx";
+import Tablepg from "./pages/index.tsx";
 
 function App() {
   return (

@@ -1,9 +1,18 @@
 import React from 'react'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import  '../../../App.css'
-export default function index(props) {
+import styled from 'styled-components';
+type InputProps={
+  color:"inherit" | "disabled" | "action" | "primary" | "secondary" | "error" | "info" | "success" | "warning",
+  fontSize:"small" | "inherit" | "large" | "medium"
+}
+const StyledInfo=styled(InfoOutlinedIcon)`
+ margin-top:8px;
+`
+
+export default function index(props:InputProps) {
   return (
-       <InfoOutlinedIcon className="iconic" color={props.color} fontSize={props.fontSize}/>
+       <StyledInfo color={props.color} fontSize={props.fontSize}/>
   )
 }
 

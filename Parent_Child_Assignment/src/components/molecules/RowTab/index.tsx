@@ -19,8 +19,15 @@ const StyledTd = styled.td`
 const Styledhighlight = styled.tr`
   background-color: #663da5;
 `;
+interface InputProps{
+  data:string[],
+   i:number, 
+   state:boolean,
+    isChecked: boolean,
+     onCheckboxChange:(i:number,isChecked:boolean)=>void
+}
 
-export default function Index(props) {
+export default function Index(props:InputProps) {
   const { data, i, state, isChecked, onCheckboxChange} = props;
 
   const handleCheckboxChange = () => {
@@ -29,7 +36,7 @@ export default function Index(props) {
   };
 
   const Rowy = () => {
-    return data.map((j, index) => (
+    return data.map((j:string, index:number) => (
       i === 0 ? (
         <StyledTh key={index}>
           <StyledText text={j} />

@@ -1,26 +1,19 @@
 import React, { Children } from 'react'
-import styled from 'styled-components';
 import Box from '@mui/material/Box';
+import styled from 'styled-components';
 
-const StyledBox=styled.div`
+const StyledBox=styled(Box)`
 background-color: rgb(74, 64, 64);
 color: white;
- border-radius: 25px;
+border-radius: 25px;
+padding: 16px;
 `
-
 
 const Index = ({ children }) => {
   return (
-    <Box
-      sx={{
-        backgroundColor: 'rgb(74, 64, 64)',
-        color: 'white',
-        borderRadius: '25px',
-        padding: '16px',
-      }}
-    >
+    <StyledBox>
       {children}
-    </Box>
+    </StyledBox>
   );
 };
 
