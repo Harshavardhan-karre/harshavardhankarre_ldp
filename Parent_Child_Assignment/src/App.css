@@ -5,21 +5,18 @@
   align-items: center;
   height: 100vh;
 }
-.iconic
-{
-  margin-top:8px;
+.iconic {
+  margin-top: 8px;
 }
-.icony{
+.icony {
   margin-top: 10px;
 }
-.divy
-{
+.divy {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
 
 .App-logo {
   height: 40vmin;
