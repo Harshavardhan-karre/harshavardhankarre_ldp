@@ -18,8 +18,9 @@ const StyledOutBox = styled(Box)`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  padding: 16px 19px 16px 19px;
   border: 1px solid black;
-  border-radius: 15px;
+  border-radius: 12px;
   width: 400px;
 `;
 interface InputProps {
@@ -65,28 +66,28 @@ export default function index({
       <StyledWrapper>
         <StyledContent>
           <StyledHeader>
-            <Text text={title} weight={500} fontSize={titleFont} />
+            <Text text={title} weight={theme.typography.h1.fontWeight as number} fontSize={titleFont} />
             <Icon src={`${process.env.PUBLIC_URL}/assets/Menu.svg`} width={20} height={10}></Icon>
           </StyledHeader>
           <Text
             text={logoname}
-            weight={500}
-            fontSize={12}
+            weight={theme.typography.h1.fontWeight as number}
+            fontSize={theme.typography.h2.fontSize as number}
             color={theme.palette.customColor1.main}
           />
           <Text
             text={Address}
-            weight={500}
-            fontSize={AdrressFont}
+            weight={theme.typography.h1.fontWeight as number}
+            fontSize={theme.typography.h2.fontSize as number}
             color={theme.palette.customColor2.main}
           />
         </StyledContent>
         <TextIcon>
           <Text
             text={timeReq}
-            fontSize={12}
+            fontSize={theme.typography.h2.fontSize as number}
             color={theme.palette.customColor2.main}
-            weight={700}
+            weight={theme.typography.h2.fontWeight as number}
           />
         </TextIcon>
       </StyledWrapper>

@@ -19,7 +19,17 @@ const theme=createTheme({
       customColor2:{
         main:"#656E66"
       },
-   }
+   },
+   typography:{
+     h2:{
+      fontSize:12,
+      fontWeight:700,
+    },
+     h1:{
+      fontSize:20,
+      fontWeight:500,
+     },
+   },
 })
 
 export default theme;
