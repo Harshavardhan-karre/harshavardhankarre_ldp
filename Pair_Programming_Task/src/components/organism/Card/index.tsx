@@ -1,8 +1,6 @@
 import { Box, Stack } from "@mui/material";
 import React from "react";
 import Icon from "../../atoms/Icon/index.tsx";
-import Img from "../../../assets/image.svg";
-import Menu from "../../../assets/Menu.svg";
 import Text from "../../atoms/Text/index.tsx";
 import styled from "styled-components";
 import TextIcon from "../../molecules/TextIcon/index.tsx";
@@ -62,13 +60,13 @@ export default function index({
   return (
     <StyledOutBox>
       <StyledImgBox>
-        <Icon src={Img} width={width} height={height} />
+        <Icon src={`${process.env.PUBLIC_URL}/assets/image.svg`} width={width} height={height} />
       </StyledImgBox>
       <StyledWrapper>
         <StyledContent>
           <StyledHeader>
             <Text text={title} weight={500} fontSize={titleFont} />
-            <Icon src={Menu} width={20} height={10}></Icon>
+            <Icon src={`${process.env.PUBLIC_URL}/assets/Menu.svg`} width={20} height={10}></Icon>
           </StyledHeader>
           <Text
             text={logoname}
