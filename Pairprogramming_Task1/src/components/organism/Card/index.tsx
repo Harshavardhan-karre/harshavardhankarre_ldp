@@ -5,14 +5,10 @@ import Text from "../../atoms/Text/index.tsx";
 import styled from "styled-components";
 import TextIcon from "../../molecules/TextIcon/index.tsx";
 import theme from "../../../theme/theme.tsx";
+import Header from '../../molecules/Header/index.tsx';
+
 const StyledImgBox = styled(Box)`
   height: 100%;
-`;
-const StyledContent = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
 `;
 const StyledOutBox = styled(Box)`
   display: flex;
@@ -41,13 +37,6 @@ const StyledWrapper = styled(Box)`
   gap: 30px;
 `;
 
-const StyledHeader = styled(Box)`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 70px;
-`;
-
 export default function index({
   title,
   logoname,
@@ -64,24 +53,7 @@ export default function index({
         <Icon src={`${process.env.PUBLIC_URL}/assets/image.svg`} width={width} height={height} />
       </StyledImgBox>
       <StyledWrapper>
-        <StyledContent>
-          <StyledHeader>
-            <Text text={title} weight={theme.typography.h1.fontWeight as number} fontSize={titleFont} />
-            <Icon src={`${process.env.PUBLIC_URL}/assets/Menu.svg`} width={20} height={10}></Icon>
-          </StyledHeader>
-          <Text
-            text={logoname}
-            weight={theme.typography.h1.fontWeight as number}
-            fontSize={theme.typography.h2.fontSize as number}
-            color={theme.palette.customColor1.main}
-          />
-          <Text
-            text={Address}
-            weight={theme.typography.h1.fontWeight as number}
-            fontSize={theme.typography.h2.fontSize as number}
-            color={theme.palette.customColor2.main}
-          />
-        </StyledContent>
+        <Header title={title} titleFont={titleFont} logoname={logoname} Address={Address}/>
         <TextIcon>
           <Text
             text={timeReq}
