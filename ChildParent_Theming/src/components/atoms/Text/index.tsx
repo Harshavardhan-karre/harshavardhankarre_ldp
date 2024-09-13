@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { Box } from "@mui/material";
-const StyledSpan = styled.span`
+import { Box, Typography } from "@mui/material";
+const StyledTypography = styled.span<{fontSize:number}>`
+  font-size:${props=>props.fontSize}px;
   float: left;
 `;
 interface InputProps {
   size?: number;
   text: string;
-  isicon?: boolean;
 }
 export default function index(props: InputProps) {
+  const {size,text}=props;
   return (
     <Box>
-      <StyledSpan style={{ fontSize: props.size }}>{props.text}</StyledSpan>
+     <StyledTypography fontSize={size||16}>{text}</StyledTypography>
     </Box>
   );
 }

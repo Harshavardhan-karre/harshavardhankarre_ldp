@@ -16,7 +16,7 @@ export default function index(props: InputProps) {
   const { size, text } = props;
   return (
     <StyledBox>
-      <Text size={size} text={text} isicon={true} />
+      <Text size={size} text={text}/>
       <Icon color="inherit" fontSize="medium" />
     </StyledBox>
   );

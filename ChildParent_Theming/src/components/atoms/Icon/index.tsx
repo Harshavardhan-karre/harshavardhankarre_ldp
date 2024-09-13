@@ -20,5 +20,6 @@ const StyledInfo = styled(InfoOutlinedIcon)`
 `;
 
 export default function index(props: InputProps) {
-  return <StyledInfo color={props.color} fontSize={props.fontSize} />;
+    const {color,fontSize}=props;
+  return <StyledInfo color={color} fontSize={fontSize} />;
 }
