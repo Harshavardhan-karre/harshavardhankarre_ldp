@@ -4,7 +4,7 @@ import "../../../App.css";
 import Icon from "../../atoms/Icon/index.tsx";
 import { Box } from "@mui/material";
 import styled from "styled-components";
-import {theme} from '../../../themes/index.tsx';
+import { theme } from "../../../themes/index.tsx";
 interface InputProps {
   size: number;
   text: string;
@@ -18,7 +18,7 @@ export default function index(props: InputProps) {
   const { size, text } = props;
   return (
     <StyledBox>
-      <Text size={size} text={text}/>
+      <Text size={size} text={text} />
       <Icon color="inherit" fontSize="medium" />
     </StyledBox>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import "../../../App.css";
 import styled from "styled-components";
-import {theme} from '../../../themes/index.tsx';
+import { theme } from "../../../themes/index.tsx";
 type InputProps = {
   color:
     | "inherit"
@@ -21,6 +21,6 @@ const StyledInfo = styled(InfoOutlinedIcon)`
 `;
 
 export default function index(props: InputProps) {
-    const {color,fontSize}=props;
+  const { color, fontSize } = props;
   return <StyledInfo color={color} fontSize={fontSize} />;
 }

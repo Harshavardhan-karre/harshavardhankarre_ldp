@@ -4,7 +4,7 @@ import Row from "../../molecules/RowTab/index.tsx";
 import { ConstHeader } from "../../../utils/constants.tsx";
 import { ContractTableInfo } from "../../../utils/constants.tsx";
 import { Box } from "@mui/material";
-import {theme} from '../../../themes/index.tsx';
+import { theme } from "../../../themes/index.tsx";
 import styled from "styled-components";
 
 const StyledBox = styled(Box)`
@@ -16,7 +16,9 @@ const StyledBox = styled(Box)`
 
 export default function Index() {
   const [state, setState] = useState<boolean>(false);
-  const [rowStates, setRowStates] = useState<boolean[]>(Array(ContractTableInfo.length));
+  const [rowStates, setRowStates] = useState<boolean[]>(
+    Array(ContractTableInfo.length)
+  );
 
   const handleCheckboxChange = (index: number, isChecked: boolean) => {
     if (index === 0) {
@@ -34,7 +36,7 @@ export default function Index() {
   };
 
   return (
-      <StyledBox>
+    <StyledBox>
       {ConstHeader}
       <table>
         {ContractTableInfo.map((array, index) => (
@@ -48,6 +50,6 @@ export default function Index() {
           />
         ))}
       </table>
-      </StyledBox>
+    </StyledBox>
   );
 }
