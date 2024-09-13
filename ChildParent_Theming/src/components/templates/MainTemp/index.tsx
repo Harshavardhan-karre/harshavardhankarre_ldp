@@ -1,8 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import styled, { ThemeProvider } from "styled-components";
 
-const Index = ({ children }) => {
+interface InputProps{
+  children:React.ReactNode;
+}
+
+const Index = ({ children}:InputProps) => {
   return (  
       <Box>{children}</Box>
   );

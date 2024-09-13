@@ -16,7 +16,6 @@ export const Default=Template.bind({});
 
 Default.args={
   text:"Your Contracts",
-  size:30,
 }
 
 export const Text=Template.bind({});

@@ -3,19 +3,18 @@ import Text from "../../atoms/Text/index.tsx";
 import CheckBox from "../../atoms/CheckBox/index.tsx";
 import styled from "styled-components";
 import {theme} from '../../../themes/index.tsx';
-import { ThemeProvider } from "@mui/material";
 
 const StyledText = styled(Text)`
-  padding: 10px;
+  padding:${theme.spacing(2.5)};
 `;
 
 const StyledTh = styled.th`
-  padding: 10px;
+  padding:${theme.spacing(2.5)};
   background-color:${theme.palette.hedcolor.main};
 `;
 
 const StyledTd = styled.td`
-  padding: 10px;
+  padding:${theme.spacing(2.5)};
 `;
 
 const Styledhighlight = styled.tr`
@@ -40,11 +39,9 @@ export default function Index(props: InputProps) {
   const Rowy = () => {
     return array.map((j: string, rowindex: number) =>
       index === 0 ? (
-        <ThemeProvider theme={theme}>
         <StyledTh key={rowindex}>
           <StyledText text={j} />
         </StyledTh>
-        </ThemeProvider>
       ) : (
         <StyledTd key={rowindex}>
           <StyledText text={j} />
@@ -54,7 +51,6 @@ export default function Index(props: InputProps) {
   };
 
   const RowComponent = isChecked || (index === 0 && state) ? Styledhighlight : "tr";
-
   return (
     <RowComponent>
       <CheckBox

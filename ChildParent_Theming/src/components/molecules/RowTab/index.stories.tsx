@@ -2,33 +2,18 @@
 
 import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import Index from './index.tsx'; 
+import Row from './index.tsx'; 
 import { theme } from '../../../themes/index.tsx';
 
 export default {
   title: 'Components/Molecules/Row', 
-  component: Index,
-  parameters: {
+  component: Row,
+} as Meta<typeof Row>;
 
-    layout: 'centered',
-  },
-} as Meta<typeof Index>;
-
-const Template: StoryFn<typeof Index> = (args) => {
-  const [checkedState, setCheckedState] = useState<boolean[]>(Array(args.array.length).fill(false));
-
-  const handleCheckboxChange = (index: number, isChecked: boolean) => {
-    const newCheckedState = [...checkedState];
-    newCheckedState[index] = isChecked;
-    setCheckedState(newCheckedState);
-  };
-
+const Template: StoryFn<typeof Row> = (args) => {
   return (
-    <Index
+    <Row
       {...args}
-      state={args.state}
-      isChecked={checkedState[args.index]}
-      onCheckboxChange={handleCheckboxChange}
     />
   );
 };

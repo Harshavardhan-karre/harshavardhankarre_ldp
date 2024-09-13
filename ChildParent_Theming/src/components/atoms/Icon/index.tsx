@@ -2,6 +2,7 @@ import React from "react";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import "../../../App.css";
 import styled from "styled-components";
+import {theme} from '../../../themes/index.tsx';
 type InputProps = {
   color:
     | "inherit"
@@ -16,7 +17,7 @@ type InputProps = {
   fontSize: "small" | "inherit" | "large" | "medium";
 };
 const StyledInfo = styled(InfoOutlinedIcon)`
-  margin-top: 8px;
+  margin-top: ${theme.spacing(2)};
 `;
 
 export default function index(props: InputProps) {
