@@ -1,26 +1,32 @@
-import { Box, Button } from '@mui/material'
-import React from 'react'
-import styled from 'styled-components';
+import { Box, Button } from "@mui/material";
+import React from "react";
+import styled from "styled-components";
 
-interface InputProps{
+interface InputProps {
   variation: "text" | "contained" | "outlined";
-  text:string,
-  handleButtonClick:()=>void,
+  text: string;
+  handleButtonClick: () => void;
 }
 
-const StyledButton=styled(Button)`
-&:hover{
-    color: #22C870;
-}
-&:active{
-   background-color: #22C870;
-}
-`
+const StyledButton = styled(Button)`
+  &:hover {
+    color: #22c870;
+  }
+  &:active {
+    background-color: #22c870;
+  }
+`;
 
-export default function index({variation,text,handleButtonClick}:InputProps) {
+export default function index({
+  variation,
+  text,
+  handleButtonClick,
+}: InputProps) {
   return (
     <Box>
-      <StyledButton variant={variation} onClick={handleButtonClick}>{text}</StyledButton>
+      <StyledButton variant={variation} onClick={handleButtonClick}>
+        {text}
+      </StyledButton>
     </Box>
-  )
+  );
 }
