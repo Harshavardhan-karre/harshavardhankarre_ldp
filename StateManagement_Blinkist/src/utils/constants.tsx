@@ -1,3 +1,5 @@
+import Header from "../components/molecules/Header/index.tsx";
+// export const HeaderTabs= <Header tab1={"Currently Reading"} tab2={"Finished"} handleTab={(val)=>handleTab(val)}/>;
 export const CardData = [
   {
     src: `${process.env.PUBLIC_URL}/assets/Book1.svg`,

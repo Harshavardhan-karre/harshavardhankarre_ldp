@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
-
+import { theme } from "../../../themes/index.tsx";
 interface InputProps {
   variation: "text" | "contained" | "outlined";
   text: string;
@@ -10,10 +10,10 @@ interface InputProps {
 
 const StyledButton = styled(Button)`
   &:hover {
-    color: #22c870;
+    color: ${theme.palette.primary.main};
   }
   &:active {
-    background-color: #22c870;
+    background-color: ${theme.palette.primary.main};
   }
 `;
 

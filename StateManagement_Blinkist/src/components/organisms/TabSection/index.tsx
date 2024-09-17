@@ -10,7 +10,7 @@ const StyledBox = styled(Box)`
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 80px;
+  gap: ${theme.spacing(40) as unknown as number};
 `;
 
 const StyledOuterBox = styled(Box)`
@@ -18,7 +18,7 @@ const StyledOuterBox = styled(Box)`
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  gap: 40px;
+  gap: ${theme.spacing(20) as unknown as number};
 `;
 
 export default function Index() {
