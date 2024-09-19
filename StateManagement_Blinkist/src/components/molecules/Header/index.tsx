@@ -38,6 +38,15 @@ const TabsStack = styled(Stack)`
 `;
 
 export default function Index({ tab1, isTab1, tab2, handleTab }: InputProps) {
+  const handlerTab1=()=>{
+    handleTab(true);
+  }
+  const handlerTab2=()=>{
+    handleTab(false);
+  }    
+
+  const Nuller=()=>(null)
+
   return (
     <StyledBox>
       <Text
@@ -46,19 +55,19 @@ export default function Index({ tab1, isTab1, tab2, handleTab }: InputProps) {
         fontWeight={theme.typography.h1.fontWeight as number}
       />{" "}
       <TabsStack spacing={20} direction={"row"}>
-        <TabContainer onClick={() => handleTab(true)}>
+        <TabContainer onClick={handlerTab1}>
           <Button
             variation="text"
             text={tab1}
-            handleButtonClick={() => null}
+            handleButtonClick={Nuller}
           ></Button>
           <StyledDivider orientation="horizontal" isTab1={isTab1} />
         </TabContainer>
-        <TabContainer onClick={() => handleTab(false)}>
+        <TabContainer onClick={handlerTab2}>
           <Button
             variation="text"
             text={tab2}
-            handleButtonClick={() => null}
+            handleButtonClick={Nuller}
           ></Button>
           <StyledDivider orientation="horizontal" isTab1={!(isTab1 == true)} />
         </TabContainer>

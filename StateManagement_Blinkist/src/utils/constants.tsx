@@ -45,3 +45,7 @@ export const CardData = [
 export const Names=[
   "Currently Reading","Finished","My Library"
 ]
+
+export const ImageLinks=[
+  `${process.env.PUBLIC_URL}/assets/TimeIcon.svg`,`${process.env.PUBLIC_URL}/assets/ReadersCount.svg`,`${process.env.PUBLIC_URL}/assets/Rectangle.svg`
+]

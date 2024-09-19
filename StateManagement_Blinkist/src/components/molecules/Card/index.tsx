@@ -5,9 +5,7 @@ import Icon from "../../atoms/Icon/index.tsx";
 import TextIcon from "../TextIcon/index.tsx";
 import { theme } from "../../../themes/index.tsx";
 import Button from "../../atoms/Button/index.tsx";
-import TimeIcon from '../../../../public/assets/TimeIcon.svg'
-import ReadersCount from '${process.env.PUBLIC_URL}/assets/ReadersCount.svg';
-import RectangleIcon from '${process.env.PUBLIC_URL}/assets/Rectangle.svg';
+import {ImageLinks} from '../../../utils/constants.tsx'
 interface InputProps {
   Src: string;
   FontSize: number;
@@ -72,12 +70,12 @@ export default function Card({
       <Stack direction="row" spacing={36}>
         <TextIcon
           text={TimeText}
-          src={TimeIcon}
+          src={ImageLinks[0]}
         />
         {lengthChecker() && (
           <TextIcon
             text={ReadTexts || ""}
-            src={ReadersCount}
+            src={ImageLinks[1]}
           />
         )}
       </Stack>
@@ -86,7 +84,7 @@ export default function Card({
         text={ButtonText}
         handleButtonClick={handleClick}
       ></Button>
-      <Icon src={RectangleIcon}></Icon>
+      <Icon src={ImageLinks[2]}></Icon>
     </StyledBox>
   );
 }
