@@ -41,3 +41,7 @@ export const CardData = [
     timeLeft: "13-min Read",
   },
 ];
+
+export const Names=[
+  "Currently Reading","Finished","My Library"
+]

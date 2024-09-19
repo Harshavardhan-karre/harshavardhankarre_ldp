@@ -5,6 +5,7 @@ import Card from "../../molecules/Card/index.tsx";
 import { theme } from "../../../themes/index.tsx";
 import styled from "styled-components";
 import Header from "../../molecules/Header/index.tsx";
+import {Names} from '../../../utils/constants.tsx'
 const StyledBox = styled(Box)`
   display: flex;
   align-content: center;
@@ -60,7 +61,7 @@ export default function Index() {
         cardState[index] === condition && (
           <Card
             key={index}
-            src={array.src}
+            Src={array.src}
             FontSize={theme.typography.h2.fontSize as number}
             ButtonText={buttonText}
             FontWeight={theme.typography.h1.fontWeight as number}
@@ -79,9 +80,9 @@ export default function Index() {
   return (
     <StyledOuterBox>
       <Header
-tab1={"Currently Reading"}
+tab1={Names[0]}
 isTab1={current}
-tab2={"Finished"}
+tab2={Names[1]}
 handleTab={(val) => handleTab(val)}
 />
       <StyledBox>

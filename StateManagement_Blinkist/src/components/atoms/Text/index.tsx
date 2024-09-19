@@ -5,29 +5,29 @@ import { theme } from "../../../themes/index.tsx";
 import Icon from '../Icon/index.tsx';
 interface InputProps {
   children: string;
-  FontSize?: number;
-  FontWeight?: number;
+  fontSize?: number;
+  fontWeight?: number;
 }
 
 const StyledTypography = styled(Box)<{
-  FontSize: string | number;
-  FontWeight: number;
+  fontSize: string | number;
+  fontWeight: number;
 }>`
   font-size: ${(props) =>
-    typeof props.FontSize === "number"
-      ? `${props.FontSize}px`
-      : props.FontSize};
-  font-weight: ${(props) => props.FontWeight};
+    typeof props.fontSize === "number"
+      ? `${props.fontSize}px`
+      : props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
 `;
 
 export default function Index({
   children,
-  FontSize = theme.typography.h2.fontSize as number,
-  FontWeight = theme.typography.h2.fontWeight as number,
+  fontSize = theme.typography.h2.fontSize as number,
+  fontWeight = theme.typography.h2.fontWeight as number,
 }: InputProps) {
   return (
     <Box>
-      <StyledTypography FontSize={FontSize} FontWeight={FontWeight}>
+      <StyledTypography fontSize={fontSize} fontWeight={fontWeight}>
         {children}
       </StyledTypography>
     </Box>

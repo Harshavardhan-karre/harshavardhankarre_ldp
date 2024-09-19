@@ -5,9 +5,11 @@ import Icon from "../../atoms/Icon/index.tsx";
 import TextIcon from "../TextIcon/index.tsx";
 import { theme } from "../../../themes/index.tsx";
 import Button from "../../atoms/Button/index.tsx";
-
+import TimeIcon from '../../../../public/assets/TimeIcon.svg'
+import ReadersCount from '${process.env.PUBLIC_URL}/assets/ReadersCount.svg';
+import RectangleIcon from '${process.env.PUBLIC_URL}/assets/Rectangle.svg';
 interface InputProps {
-  src: string;
+  Src: string;
   FontSize: number;
   ButtonText: string;
   FontWeight?: number;
@@ -23,15 +25,15 @@ interface InputProps {
 const StyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border: 1px solid #e1ecfc;
-  border-radius: 8px;
-  width: 284px;
+  gap: ${theme.spacing(5)};
+  border: 1px solid ${theme.palette.primary.light};
+  border-radius:  ${theme.spacing(4)};
+  width:  ${theme.spacing(142)};
   height: fit-content;
 `;
 
 export default function Card({
-  src,
+  Src,
   FontSize,
   ButtonText,
   FontWeight = theme.typography.fontWeightBold as number,
@@ -56,26 +58,26 @@ export default function Card({
       <Icon
         width={theme.spacing(142) as unknown as number}
         height={theme.spacing(141) as unknown as number}
-        src={src}
+        src={Src}
       />
-      <Text FontSize={FontSize} FontWeight={FontWeight}>
+      <Text fontSize={FontSize} fontWeight={FontWeight}>
         {BookTitle}
       </Text>
       <Text
-        FontSize={FontSize}
-        FontWeight={theme.typography.h2.fontWeight as number}
+        fontSize={FontSize}
+        fontWeight={theme.typography.h2.fontWeight as number}
       >
         {AuthorTitle}
       </Text>
       <Stack direction="row" spacing={36}>
         <TextIcon
           text={TimeText}
-          src={`${process.env.PUBLIC_URL}/assets/TimeIcon.svg`}
+          src={TimeIcon}
         />
         {lengthChecker() && (
           <TextIcon
             text={ReadTexts || ""}
-            src={`${process.env.PUBLIC_URL}/assets/ReadersCount.svg`}
+            src={ReadersCount}
           />
         )}
       </Stack>
@@ -84,7 +86,7 @@ export default function Card({
         text={ButtonText}
         handleButtonClick={handleClick}
       ></Button>
-      <Icon src={`${process.env.PUBLIC_URL}/assets/Rectangle.svg`}></Icon>
+      <Icon src={RectangleIcon}></Icon>
     </StyledBox>
   );
 }
