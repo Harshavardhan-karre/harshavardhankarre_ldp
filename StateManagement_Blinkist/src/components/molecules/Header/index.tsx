@@ -4,7 +4,7 @@ import Text from "../../atoms/Text/index.tsx";
 import styled from "styled-components";
 import { theme } from "../../../themes/index.tsx";
 import Button from "../../atoms/Button/index.tsx";
-import {Names} from '../../../utils/constants.tsx';
+import { Names } from "../../../utils/constants.tsx";
 interface InputProps {
   tab1: string;
   isTab1: boolean;
@@ -26,7 +26,7 @@ const TabContainer = styled(Box)`
 `;
 const StyledDivider = styled(Divider)<{ isTab1: boolean }>`
   width: 120%;
-  height:  ${theme.spacing(1.5)};
+  height: ${theme.spacing(1.5)};
   background-color: ${(props) =>
     props.isTab1 == true ? theme.palette.primary.dark : "none"};
 `;
@@ -38,14 +38,14 @@ const TabsStack = styled(Stack)`
 `;
 
 export default function Index({ tab1, isTab1, tab2, handleTab }: InputProps) {
-  const handlerTab1=()=>{
+  const handlerTab1 = () => {
     handleTab(true);
-  }
-  const handlerTab2=()=>{
+  };
+  const handlerTab2 = () => {
     handleTab(false);
-  }    
+  };
 
-  const Nuller=()=>(null)
+  const Nuller = () => null;
 
   return (
     <StyledBox>

@@ -14,13 +14,13 @@ const Template: StoryFn<TextProps> = (args) => <Text {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  children:"Enter Text",
-  fontSize:20,
+  children: "Enter Text",
+  fontSize: 20,
 };
 
 export const TextWeight = Template.bind({});
 TextWeight.args = {
-  children:"Enter Text",
-  fontSize:20,
-  fontWeight:500,
+  children: "Enter Text",
+  fontSize: 20,
+  fontWeight: 500,
 };

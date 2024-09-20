@@ -13,6 +13,4 @@ type CardSectionProps = React.ComponentProps<typeof CardSection>;
 const Template: StoryFn<CardSectionProps> = (args) => <CardSection />;
 
 export const Default = Template.bind({});
-Default.args = {
-};
-
+Default.args = {};

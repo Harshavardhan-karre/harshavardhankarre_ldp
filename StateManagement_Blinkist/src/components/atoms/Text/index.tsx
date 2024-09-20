@@ -2,7 +2,7 @@ import { Box, InputAdornment } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../themes/index.tsx";
-import Icon from '../Icon/index.tsx';
+import Icon from "../Icon/index.tsx";
 interface InputProps {
   children: string;
   fontSize?: number;

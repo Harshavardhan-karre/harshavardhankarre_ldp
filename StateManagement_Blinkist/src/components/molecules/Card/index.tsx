@@ -5,7 +5,7 @@ import Icon from "../../atoms/Icon/index.tsx";
 import TextIcon from "../TextIcon/index.tsx";
 import { theme } from "../../../themes/index.tsx";
 import Button from "../../atoms/Button/index.tsx";
-import {ImageLinks} from '../../../utils/constants.tsx'
+import { ImageLinks } from "../../../utils/constants.tsx";
 interface InputProps {
   Src: string;
   FontSize: number;
@@ -25,8 +25,8 @@ const StyledBox = styled(Box)`
   flex-direction: column;
   gap: ${theme.spacing(5)};
   border: 1px solid ${theme.palette.primary.light};
-  border-radius:  ${theme.spacing(4)};
-  width:  ${theme.spacing(142)};
+  border-radius: ${theme.spacing(4)};
+  width: ${theme.spacing(142)};
   height: fit-content;
 `;
 
@@ -68,15 +68,9 @@ export default function Card({
         {AuthorTitle}
       </Text>
       <Stack direction="row" spacing={36}>
-        <TextIcon
-          text={TimeText}
-          src={ImageLinks[0]}
-        />
+        <TextIcon text={TimeText} src={ImageLinks[0]} />
         {lengthChecker() && (
-          <TextIcon
-            text={ReadTexts || ""}
-            src={ImageLinks[1]}
-          />
+          <TextIcon text={ReadTexts || ""} src={ImageLinks[1]} />
         )}
       </Stack>
       <Button

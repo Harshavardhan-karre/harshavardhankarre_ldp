@@ -5,7 +5,7 @@ import Card from "../../molecules/Card/index.tsx";
 import { theme } from "../../../themes/index.tsx";
 import styled from "styled-components";
 import Header from "../../molecules/Header/index.tsx";
-import {Names} from '../../../utils/constants.tsx'
+import { Names } from "../../../utils/constants.tsx";
 const StyledBox = styled(Box)`
   display: flex;
   align-content: center;
@@ -80,11 +80,11 @@ export default function Index() {
   return (
     <StyledOuterBox>
       <Header
-tab1={Names[0]}
-isTab1={current}
-tab2={Names[1]}
-handleTab={(val) => handleTab(val)}
-/>
+        tab1={Names[0]}
+        isTab1={current}
+        tab2={Names[1]}
+        handleTab={(val) => handleTab(val)}
+      />
       <StyledBox>
         {current ? Invoker(false, "Finished") : Invoker(true, "Read Again")}
       </StyledBox>

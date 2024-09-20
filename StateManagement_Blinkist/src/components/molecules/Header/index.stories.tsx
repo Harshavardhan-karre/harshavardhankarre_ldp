@@ -14,14 +14,13 @@ const Template: StoryFn<HeaderProps> = (args) => <Header {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-   tab1:"Tab 1",
-   tab2:"Tab 2"
+  tab1: "Tab 1",
+  tab2: "Tab 2",
 };
-
 
 export const HeaderTabSelect = Template.bind({});
 HeaderTabSelect.args = {
-   tab1:"Tab 1",
-   tab2:"Tab 2",
-   handleTab:action("Tab is clicked")
+  tab1: "Tab 1",
+  tab2: "Tab 2",
+  handleTab: action("Tab is clicked"),
 };
