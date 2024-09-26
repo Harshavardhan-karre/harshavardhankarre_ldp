@@ -1,8 +1,8 @@
-import { Button } from "@mui/material";
+import { Button, ButtonProps } from "@mui/material";
 import React from "react";
 import theme from "../../../themes";
-
-interface InputProps {
+import Text from "../Text/index";
+interface InputProps extends ButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
   variant?: "text" | "contained" | "outlined";
   handleButton?: () => void;
@@ -17,7 +17,7 @@ export default function Index({
 }: InputProps) {
   return (
     <Button type={type} variant={variant || "contained"} onClick={handleButton}>
-      {children}
+      <Text text={children as string} />
     </Button>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Input from "../../atoms/Input";
 import { Box, Grid, styled } from "@mui/material";
 import theme from "../../../themes";
-
+import Text from "../../atoms/Text/index";
 interface InputProps {
   text: string;
   type: string;
@@ -20,7 +20,9 @@ const StyledGrid = styled(Grid)`
 export default function index({ text, type, name, handleInput }: InputProps) {
   return (
     <StyledGrid>
-      <label htmlFor={name}>{text}</label>
+      <label htmlFor={name}>
+        <Text text={text as string} />
+      </label>
       <Input
         type={type}
         name={name}

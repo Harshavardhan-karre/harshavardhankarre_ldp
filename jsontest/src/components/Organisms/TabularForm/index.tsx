@@ -1,11 +1,12 @@
-import axios from "axios";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "../../atoms/Button";
-import { Header } from "../../../constants";
 import Input from "../../atoms/Input";
 import { Box } from "@mui/material";
 import theme from "../../../themes";
+import { buttonText, Header } from "../../../constants"; // Assuming this is a valid header component or array
+import TableRow from "../../molecules/TableRow";
+
 interface Product {
   id: string;
   title: string;
@@ -14,40 +15,28 @@ interface Product {
   description: string;
 }
 
-interface InputProps {
+interface OrganismProps {
   state: Product[];
-  setState: Dispatch<SetStateAction<Product[]>>;
+  deleteProduct?: (id: string) => void;
+  updateProduct?: (product: Product) => void;
 }
 
-const StyledTD = styled.td`
-  padding: ${theme.spacing(5)};
+const StyledTable = styled.table`
+  width: fit-content;
+  border-collapse: collapse;
 `;
 
-export default function Index({ state, setState }: InputProps) {
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/products")
-      .then((response) => {
-        setState(response.data);
-      })
-      .catch((err) => {
-        alert("API Fetch Error, Try again");
-      });
-  }, [setState]);
+export default function Index({
+  state,
+  deleteProduct,
+  updateProduct,
+}: OrganismProps) {
+  const [editingProduct, setEditingProduct] = useState<Product | null>();
 
   const handleEditDelete = (id: string, opt: boolean) => {
     if (opt) {
-      axios.delete(`http://localhost:4000/products/${id}`)
-        .then(() => {
-          alert(`Item with id: ${id} is deleted`);
-          setState((prevState) => prevState.filter((product) => product.id !== id));
-        })
-        .catch(() => {
-          alert("Error in Fetching and Processing API");
-        });
+      deleteProduct && deleteProduct(id);
     } else {
- 
       const productToEdit = state.find((product) => product.id === id);
       if (productToEdit) {
         setEditingProduct(productToEdit);
@@ -57,88 +46,52 @@ export default function Index({ state, setState }: InputProps) {
 
   const handleSaveEdit = () => {
     if (editingProduct) {
-      axios.put(`http://localhost:4000/products/${editingProduct.id}`, editingProduct)
-        .then(() => {
-          alert(`Item with id: ${editingProduct.id} is updated`);
-          setState((prevState) =>
-            prevState.map((product) =>
-              product.id === editingProduct.id ? editingProduct : product
-            )
-          );
-          setEditingProduct(null);
-        })
-        .catch(() => {
-          alert("Error in Fetching and Processing API");
-        });
+      updateProduct && updateProduct(editingProduct);
+      setEditingProduct(null);
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setEditingProduct((prev) => prev ? { ...prev, [name]: value } : null);
+    setEditingProduct((prev) => (prev ? { ...prev, [name]: value } : null));
   };
 
   return (
-    <div>
+    <Box>
       {editingProduct ? (
         <Box>
-          <h3>Edit Product</h3>
-          <Input
-            type="text"
-            name="title"
-            value={editingProduct.title}
-            handleInput={handleInputChange}
-          />
-          <Input
-            type="text"
-            name="category"
-            value={editingProduct.category}
-            handleInput={handleInputChange}
-          />
-          <Input
-            type="number"
-            name="price"
-            value={editingProduct.price}
-            handleInput={handleInputChange}
-          />
-          <Input
-            type="text"
-            name="description"
-            value={editingProduct.description}
-            handleInput={handleInputChange}
-          />
+          <h3>{buttonText[5]}</h3>
+          {Object.keys(state[0]).map((i) => (
+            <Input
+              key={i}
+              type={i === "price" ? "number" : "text"}
+              name={i}
+              value={editingProduct[i as keyof typeof editingProduct] || ""}
+              handleInput={handleInputChange}
+            />
+          ))}
           <Button handleButton={handleSaveEdit}>Save</Button>
         </Box>
       ) : (
-        <table border={2} cellSpacing={0}>
+        <StyledTable border={1}>
           <thead>
-            <tr>
-              {Header}
-            </tr>
+            <tr>{Header}</tr>
           </thead>
           <tbody>
             {state.map((product) => (
-              <tr key={product.id}>
-                <StyledTD>{product.id}</StyledTD>
-                <StyledTD>{product.title}</StyledTD>
-                <StyledTD>{product.category}</StyledTD>
-                <StyledTD>{product.price}</StyledTD>
-                <StyledTD>{product.description}</StyledTD>
-                <StyledTD>
-                  <Button handleButton={() => handleEditDelete(product.id, false)}>
-                    Edit
-                  </Button>
-                </StyledTD>
-                <StyledTD>
-                  <Button handleButton={() => handleEditDelete(product.id, true)}>
-                    Delete
-                  </Button>
-                </StyledTD>
-              </tr>
+              <TableRow
+                product={product}
+                handleEditDelete={handleEditDelete}
+                id={""}
+                title={""}
+                category={""}
+                price={""}
+                description={""}
+              />
             ))}
           </tbody>
-        </table>
+        </StyledTable>
       )}
-    </div>
+    </Box>
   );
 }

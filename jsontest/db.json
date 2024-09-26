@@ -5,100 +5,70 @@
       "title": "product 1",
       "category": "electronics",
       "price": 4000,
-      "description": "product 1 description",
-      "discount": {
-        "type": ""
-      }
-    },
-    {
-      "id": "2",
-      "title": "product 2",
-      "category": "electronics",
-      "price": 2000,
-      "description": "product 2 description",
-      "discount": {
-        "type": ""
-      }
-    },
-    {
-      "id": "3",
-      "title": "product 3",
-      "category": "books",
-      "price": 1000,
-      "description": "product 3 description",
-      "discount": {
-        "type": ""
-      }
+      "description": "product 1 description"
     },
     {
       "id": "4",
       "title": "product 4",
       "category": "fitness",
       "price": 4000,
-      "description": "product 4 description",
-      "discount": {
-        "type": ""
-      }
+      "description": "product 4 description"
     },
     {
       "id": "5",
       "title": "product 5",
       "category": "fitness",
       "price": 8000,
-      "description": "product 5 description",
-      "discount": {
-        "type": ""
-      }
+      "description": "product 5 description"
     },
     {
       "id": "6",
       "title": "product 6",
       "category": "electronics",
       "price": 5000,
-      "description": "product 6 description",
-      "discount": {
-        "type": ""
-      }
+      "description": "product 6 description"
     },
     {
       "id": "7",
       "title": "product 7",
       "category": "books",
       "price": 8000,
-      "description": "product 7 description",
-      "discount": {
-        "type": ""
-      }
+      "description": "product 7 description"
     },
     {
       "id": "8",
       "title": "product 8",
       "category": "fitness",
       "price": 7000,
-      "description": "product 8 description",
-      "discount": {
-        "type": ""
-      }
+      "description": "product 8 description"
     },
     {
       "id": "9",
       "title": "product 9",
       "category": "books",
       "price": 8000,
-      "description": "product 9 description",
-      "discount": {
-        "type": ""
-      }
+      "description": "product 9 description"
     },
     {
       "id": "10",
       "title": "product 10",
       "category": "electronics",
       "price": 3000,
-      "description": "product 10 description",
-      "discount": {
-        "type": "shipping"
-      }
+      "description": "product 10 description"
+    },
+    {
+      "id": "11",
+      "title": "Ram Charitra manas",
+      "category": "Ramayan",
+      "price": "300",
+      "description": "Shri Rama Kavyam"
+    },
+    {
+      "id": "12",
+      "title": "sdfsgh",
+      "category": "sdfsgdhfj",
+      "price": "34567",
+      "description": "dsfsgdhj"
     }
   ],
   "reviews": [
