@@ -1,13 +1,9 @@
 package SOLID.DIP.DIPVoilated;
 
-import SOLID.DIP.DIPCorrected.EmailNotificationService;
-import SOLID.ISP.ISPVoilated.PassportApplication;
-import SOLID.SRP.SRPCorrected.NotificationService;
-
 public class PassportApplicationService {
-    private NotificationService notificationService = new EmailNotificationService();
+    private EmailNotificationService notificationService = new EmailNotificationService();
 
-    public void submitApplication(PassportApplication application) {
+    public void submitApplication(int idofApplication) {
         // Logic to submit passport application
         notificationService.sendNotification("Application submitted");
     }

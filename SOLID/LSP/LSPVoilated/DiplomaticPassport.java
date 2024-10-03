@@ -1,8 +1,7 @@
 package SOLID.LSP.LSPVoilated;
 
-import SOLID.LSP.LSPCorrected.Passport;
 
-class DiplomaticPassport extends SOLID.LSP.LSPCorrected.Passport {
+class DiplomaticPassport extends Passport {
     @Override
     public double getFee() {
         return 0.0;

@@ -1,6 +1,6 @@
 package SOLID.LSP.LSPVoilated;
 
-class RegularPassport extends PassportFee {
+class RegularPassport extends Passport {
     @Override
     public double getFee() {
         return 100.0;

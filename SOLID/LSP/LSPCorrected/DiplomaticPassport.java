@@ -1,6 +1,6 @@
 package SOLID.LSP.LSPCorrected;
 
-class DiplomaticPassport extends Passport {
+public class DiplomaticPassport extends Passport {
     @Override
     public double getFee() {
         return 0.0;

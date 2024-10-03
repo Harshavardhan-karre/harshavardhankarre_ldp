@@ -1,6 +1,5 @@
 package SOLID.DIP.DIPCorrected;
 
-import SOLID.SRP.SRPCorrected.NotificationService;
 
 public class EmailNotificationService implements NotificationService {
     @Override
