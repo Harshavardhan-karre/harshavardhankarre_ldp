@@ -3,11 +3,11 @@ package Abstract_Inner_Class;
 abstract class AbstractExample{
     int age=20;
     abstract void display();
-
+//    abstract void display2();
 }
 
 
-class Invoker extends AbstractExample{
+ class Invoker extends AbstractExample{
     void display(){
         System.out.println(age);
     }
@@ -19,5 +19,4 @@ public class Abstract_Inner{
         in.display();
     }
 }
-
 

@@ -16,8 +16,6 @@ public class ExceptionsExercise {
         try
         {
              int a=10/0;
-
-//             throw IndexOutOfBoundsException
         }
         catch (ArithmeticException e)
         {
@@ -26,13 +24,13 @@ public class ExceptionsExercise {
         finally {
             System.out.println("finally block");
         }
-        //File
+
         try{
              caller();
         }
         catch(Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
