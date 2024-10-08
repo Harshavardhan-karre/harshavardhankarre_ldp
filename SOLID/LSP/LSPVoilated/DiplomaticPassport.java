@@ -9,6 +9,6 @@ class DiplomaticPassport extends Passport {
 
     @Override
     public void processApplication() {
-        System.out.println("Skipping application process for diplomatic passport.");
+        throw new RuntimeException("Skipping Application process for diplomatic passport.");
     }
 }

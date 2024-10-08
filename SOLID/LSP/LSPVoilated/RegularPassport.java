@@ -6,6 +6,6 @@ class RegularPassport extends Passport {
         return 100.0;
     }
     public void processApplication() {
-        System.out.println("Processing application process for Refular passport.");
+        System.out.println("Processing application process for Regular passport."+getFee());
     }
 }
