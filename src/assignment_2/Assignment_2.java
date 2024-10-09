@@ -12,6 +12,11 @@ public class Assignment_2 {
         System.out.println("Enter a string: ");
         String userString = scan.nextLine();
         userString = userString.toLowerCase();
+        if(userString.length()<26)
+        {
+            System.out.println("Given string doesn't have all letters of alphabet a-z");
+            return;
+        }
         int charArray[]=new int[26];
         int stringLength=userString.length();
         for (int i = 0; i < stringLength; i++) {
