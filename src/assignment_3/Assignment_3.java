@@ -74,3 +74,10 @@ public class Assignment_3{
         }
     }
 }
+
+/*
+Time complexity: O(pingCount+ n log n)
+Space Complexity: O(n)
+
+where n is the number of valid ping times recorded.
+ */
