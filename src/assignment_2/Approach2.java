@@ -30,3 +30,8 @@ class Approach2 {
         }
     }
 }
+
+/*
+Time complexity:O(stringlength)
+Space complexity:O(stringlength)
+ */
