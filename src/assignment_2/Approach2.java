@@ -1,3 +1,5 @@
+package assignment_2;
+
 import java.util.*;
 class Approach2 {
     public static void main(String[] args) {
@@ -18,6 +20,10 @@ class Approach2 {
             if(ch>='a' && ch<='z')
             {
                 h.add(ch);
+            }
+            if(h.size()==26)
+            {
+                break;
             }
         }
         if(h.size()==26)

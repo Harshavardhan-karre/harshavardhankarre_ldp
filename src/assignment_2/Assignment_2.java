@@ -17,16 +17,16 @@ public class Assignment_2 {
             System.out.println("Given string doesn't have all letters of alphabet a-z");
             return;
         }
-        int charArray[]=new int[26];
+        boolean charArray[]=new boolean[26];
         int stringLength=userString.length();
         for (int i = 0; i < stringLength; i++) {
             if(userString.charAt(i)>='a' && userString.charAt(i)<='z') {
-                charArray[userString.charAt(i)-'a']++;
+                charArray[userString.charAt(i)-'a']=true;
             }
         }
         boolean hasAll=true;
         for (int i = 0; i < 26; i++) {
-            if(charArray[i]<1)
+            if(charArray[i]==false)
             {
                 hasAll=false;
                 break;
