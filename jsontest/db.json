@@ -1,0 +1,136 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "product 1",
+      "category": "electronics",
+      "price": 4000,
+      "description": "product 1 description"
+    },
+    {
+      "id": "4",
+      "title": "product 4",
+      "category": "fitness",
+      "price": 4000,
+      "description": "product 4 description"
+    },
+    {
+      "id": "5",
+      "title": "product 5",
+      "category": "fitness",
+      "price": 8000,
+      "description": "product 5 description"
+    },
+    {
+      "id": "6",
+      "title": "product 6",
+      "category": "electronics",
+      "price": 5000,
+      "description": "product 6 description"
+    },
+    {
+      "id": "7",
+      "title": "product 7",
+      "category": "books",
+      "price": 8000,
+      "description": "product 7 description"
+    },
+    {
+      "id": "8",
+      "title": "product 8",
+      "category": "fitness",
+      "price": 7000,
+      "description": "product 8 description"
+    },
+    {
+      "id": "9",
+      "title": "product 9",
+      "category": "books",
+      "price": 8000,
+      "description": "product 9 description"
+    },
+    {
+      "id": "10",
+      "title": "product 10",
+      "category": "electronics",
+      "price": 3000,
+      "description": "product 10 description"
+    },
+    {
+      "id": "11",
+      "title": "Ram Charitra manas",
+      "category": "Ramayan",
+      "price": "300",
+      "description": "Shri Rama Kavyam"
+    },
+    {
+      "id": "12",
+      "title": "sdfsgh",
+      "category": "sdfsgdhfj",
+      "price": "34567",
+      "description": "dsfsgdhj"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "rating": 3,
+      "comment": "Review 1 for product id 1",
+      "productId": 1
+    },
+    {
+      "id": "2",
+      "rating": 4,
+      "comment": "Review 2 for product id 1",
+      "productId": 2
+    },
+    {
+      "id": "3",
+      "rating": 4,
+      "comment": "Review 3 for product id 1",
+      "productId": 3
+    },
+    {
+      "id": "4",
+      "rating": 2,
+      "comment": "Review 4 for product id 1",
+      "productId": 4
+    },
+    {
+      "id": "5",
+      "rating": 4,
+      "comment": "Review 5 for product id 1",
+      "productId": 5
+    },
+    {
+      "id": "6",
+      "rating": 5,
+      "comment": "Review 6 for product id 1",
+      "productId": 6
+    },
+    {
+      "id": "7",
+      "rating": 3,
+      "comment": "Review 7 for product id 1",
+      "productId": 7
+    },
+    {
+      "id": "8",
+      "rating": 4,
+      "comment": "Review 8 for product id 1",
+      "productId": 8
+    },
+    {
+      "id": "9",
+      "rating": 2,
+      "comment": "Review 9 for product id 1",
+      "productId": 9
+    },
+    {
+      "id": "10",
+      "rating": 3,
+      "comment": "Review 10 for product id 1",
+      "productId": 10
+    }
+  ]
+}
