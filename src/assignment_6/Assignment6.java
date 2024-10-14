@@ -73,9 +73,11 @@ public class Assignment_6 {
     }
 }
 /*
-Time complexity: O(N x 10^2 x 4log4)
-Space complexity: O(100+d)  where d is no. of digits
+Time complexity: O(N x 10^(d/2) x dlogd)
+Space complexity: O(M)
 
+where d is no of digits
+where M is no. of vampire numbers required (here M is 100)
 where N is the number of numbers checked.
  */
 
