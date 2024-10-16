@@ -9,48 +9,53 @@ three types of exceptions. Add a finally clause and verify that your finally cla
 even if a NullPointerException is thrown.
  */
 
+class MyArithmeticException extends Exception {
+    public MyArithmeticException(String message) {
+        super(message);
+    }
+}
+
+class MyIndexOutOfBoundsException extends Exception {
+    public MyIndexOutOfBoundsException(String message) {
+        super(message);
+    }
+}
+
+class MyNullPointerException extends Exception {
+    public MyNullPointerException(String message) {
+        super(message);
+    }
+}
+
 public class Assignment_8 {
-    public static void exceptionThorwer(int num) throws Exception
-    {
-        if(num==1) {
+
+    public static void exceptionThorwer(int num) throws MyArithmeticException, MyIndexOutOfBoundsException, MyNullPointerException {
+        if (num == 1) {
             ArithmeticExceptionThrower();
-        }
-       else if(num==2)
-        {
+        } else if (num == 2) {
             IndexThrower();
-        }
-       else {
+        } else {
             NullThrower();
         }
     }
 
-    static void ArithmeticExceptionThrower() throws Exception
-    {
-        int a=10/0;
+    static void ArithmeticExceptionThrower() throws MyArithmeticException {
+        throw new MyArithmeticException("Custom Arithmetic Exception: Division by zero is not allowed.");
+    }
+    static void IndexThrower() throws MyIndexOutOfBoundsException {
+        throw new MyIndexOutOfBoundsException("Custom Index Out of Bounds Exception: Invalid array index.");
     }
 
-    static void IndexThrower() throws Exception
-    {
-        int array[]=new int[2];
-        array[0]=1;
-        array[1]=2;
-        array[2]=3;
+    static void NullThrower() throws MyNullPointerException {
+        throw new MyNullPointerException("Custom Null Pointer Exception: Null reference accessed.");
     }
 
-    static void NullThrower() throws Exception
-    {
-        int array2[]=null;
-        int n=array2.length;
-    }
-
-    public static void main(String k[])
-    {
-
-        for(int i=1;i<=3;i++) {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 3; i++) {
             try {
                 exceptionThorwer(i);
-            } catch (Exception e) {
-                System.out.println("Exception got caught:    " + e.getMessage());
+            } catch (MyArithmeticException | MyIndexOutOfBoundsException | MyNullPointerException e) {
+                System.out.println("Exception caught: " + e.getMessage());
             } finally {
                 System.out.println("Finally block is executed");
             }
