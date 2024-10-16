@@ -20,6 +20,8 @@ Write code to demonstrate SList.
 
  */
 
+import java.util.ArrayList;
+import java.util.List;
 
 class Link<T> {
     T data;
@@ -36,7 +38,7 @@ class SList<T> {
     Link<T> tail;
 
     SList() {
-        head = new Link<>(null); // Dummy head
+        head = new Link<>(null);
         tail = head;
     }
 
@@ -52,6 +54,26 @@ class SList<T> {
         Link<T> link = new Link<>(data);
         tail.next = link;
         tail = link;
+    }
+
+
+    boolean remove(T data) {
+        Link<T> previous = head;
+        Link<T> current = head.next;
+
+        while (current != null) {
+            if (current.data.equals(data)) {
+                previous.next = current.next;
+
+                if (current == tail) {
+                    tail = previous;
+                }
+                return true;
+            }
+            previous = current;
+            current = current.next;
+        }
+        return false;
     }
 
     @Override
@@ -75,7 +97,7 @@ class SListIterator<T> {
     public SListIterator(SList<T> list) {
         this.list = list;
         this.previous = list.getHead();
-        this.current = list.getHead().next; // Start at first real node
+        this.current = list.getHead().next;
     }
 
     public boolean hasNext() {
@@ -96,8 +118,7 @@ class SListIterator<T> {
         Link<T> newLink = new Link<>(data);
         newLink.next = current;
         previous.next = newLink;
-        previous = newLink; e
-
+        previous = newLink;
 
         if (newLink.next == null) {
             list.tail = newLink;
@@ -116,12 +137,19 @@ public class Assignment_10 {
 
         SListIterator<Integer> iterator = list.iterator();
 
+        System.out.println("\nIterating through the list:");
         while (iterator.hasNext()) {
             System.out.println("Next element: " + iterator.next());
         }
 
         iterator.add(4);
-        System.out.println("List after adding 4: " + list);
+        System.out.println("\nList after adding 4: " + list);
+
+
+        boolean removed = list.remove(2);
+        System.out.println("\nAttempting to remove 2: " + (removed ? "Success" : "Failure"));
+        System.out.println("List after removing 2: " + list);
+
     }
 }
 
